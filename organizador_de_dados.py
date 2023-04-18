@@ -63,7 +63,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
 
                 else:
                     if not dia_anterior in medias_dia:
-                        medias_dia[dia_anterior] = {}
+                        medias_dia[dia_anterior] = {"Dia": dia_anterior}
                     if horas[nomes[i]]:
                         medias_dia[dia_anterior][nomes[i]] = somas_dia[dia_anterior][nomes[i]] / horas[nomes[i]]
                     else:
@@ -85,7 +85,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
                     else:
 
                         if not mes_anterior in medias_mes:
-                            medias_mes[mes_anterior] = {}
+                            medias_mes[mes_anterior] = {"Mes" : mes_anterior}
                         if dias[nomes[i]]:
                             medias_mes[mes_anterior][nomes[i]] = somas_mes[mes_anterior][nomes[i]] / dias[nomes[i]]
                         else:
@@ -107,7 +107,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
                         else:
 
                             if not ano_anterior in medias_ano:
-                                medias_ano[ano_anterior] = {}
+                                medias_ano[ano_anterior] = {"Ano": ano_anterior}
                             if meses[nomes[i]]:
                                 medias_ano[ano_anterior][nomes[i]] = somas_ano[ano_anterior][nomes[i]] / meses[nomes[i]]
                             else:
@@ -154,7 +154,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
 
         writer.writeheader()
 
-        for dia in medias_ano:
+        for ano in medias_ano:
             try:
                 writer.writerow(medias_ano[ano])
             except Exception as e:
