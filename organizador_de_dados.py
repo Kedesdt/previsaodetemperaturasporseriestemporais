@@ -65,7 +65,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
                     if not dia_anterior in medias_dia:
                         medias_dia[dia_anterior] = {"Dia": dia_anterior}
                     if horas[nomes[i]]:
-                        medias_dia[dia_anterior][nomes[i]] = somas_dia[dia_anterior][nomes[i]] / horas[nomes[i]]
+                        medias_dia[dia_anterior][nomes[i]] = "%.2f" %(somas_dia[dia_anterior][nomes[i]] / horas[nomes[i]])
                     else:
                         medias_dia[dia_anterior][nomes[i]] = 0
                     horas[nomes[i]] = 1
@@ -79,7 +79,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
                             somas_mes[mes][nomes[i]] = 0
                             dias[nomes[i]] = 1
 
-                        somas_mes[mes][nomes[i]] += medias_dia[dia_anterior][nomes[i]]
+                        somas_mes[mes][nomes[i]] += float(medias_dia[dia_anterior][nomes[i]])
                         dias[nomes[i]] += 1
 
                     else:
@@ -87,7 +87,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
                         if not mes_anterior in medias_mes:
                             medias_mes[mes_anterior] = {"Mes" : mes_anterior}
                         if dias[nomes[i]]:
-                            medias_mes[mes_anterior][nomes[i]] = somas_mes[mes_anterior][nomes[i]] / dias[nomes[i]]
+                            medias_mes[mes_anterior][nomes[i]] = "%.2f" %(somas_mes[mes_anterior][nomes[i]] / dias[nomes[i]])
                         else:
                             medias_mes[mes_anterior][nomes[i]] = 0
                         dias[nomes[i]] = 1
@@ -101,7 +101,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
                                 somas_ano[ano][nomes[i]] = 0
                                 meses[nomes[i]] = 1
 
-                            somas_ano[ano][nomes[i]] += medias_mes[mes_anterior][nomes[i]]
+                            somas_ano[ano][nomes[i]] += float(medias_mes[mes_anterior][nomes[i]])
                             meses[nomes[i]] += 1
 
                         else:
@@ -109,7 +109,7 @@ with open('dados_A701_H_2006-07-24_2023-03-22.csv') as csvfile:
                             if not ano_anterior in medias_ano:
                                 medias_ano[ano_anterior] = {"Ano": ano_anterior}
                             if meses[nomes[i]]:
-                                medias_ano[ano_anterior][nomes[i]] = somas_ano[ano_anterior][nomes[i]] / meses[nomes[i]]
+                                medias_ano[ano_anterior][nomes[i]] = "%.2f" %(somas_ano[ano_anterior][nomes[i]] / meses[nomes[i]])
                             else:
                                 medias_ano[ano_anterior][nomes[i]] = 0
                             meses[nomes[i]] = 1
